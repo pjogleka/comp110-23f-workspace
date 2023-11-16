@@ -12,7 +12,7 @@ class Node:
     def __init__(self, data: int, next: Node | None):
         """Construct Node."""
         self.data = data
-        self. next = next
+        self.next = next
         
     def __str__(self) -> str:
         """Produce a string visualization of the linked list."""
@@ -22,11 +22,16 @@ class Node:
         else:
             return f"{self.data} -> {self.next}"
         
-    def head(self):
-        return None
+    def head(self) -> int:
+        """Return the data attribute for the first element in the linked list."""
+        return self.data
     
-    def tail(self):
-        return None
+    def tail(self) -> Node | None:
+        """Returns a linked list of every element minus the head."""
+        return self.next
     
-    def last(self):
-        return None
+    def last(self) -> int:
+        """Returns the data of the last element in the linked list."""
+        while self.next is not None:
+            self = self.next
+        return self.data
